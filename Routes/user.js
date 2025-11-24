@@ -126,7 +126,13 @@ router.post("/profile", isLoggedIn, async (req, res) => {
     res.redirect("/profile");
   }
 });
-
+router.get('/About', (req, res) => {
+  res.render('About', {
+    title: 'About Us',
+    pageCSS: ['About'],
+    currentUser: req.user
+  });
+});
 
 
 module.exports = router;
