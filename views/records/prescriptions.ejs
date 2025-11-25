@@ -1,0 +1,97 @@
+<% pageCSS = ["report"]; %>
+
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+
+<!-- Header -->
+<div class="header">
+    <a href="/" class="back-btn">Back to Home</a>
+    <h1>MediVault – Prescriptions</h1>
+</div>
+
+<!-- Controls -->
+<div class="controls">
+
+    <input id="searchBox" type="text" placeholder="Search prescriptions...">
+
+    <select id="categoryFilter">
+        <option value="all">All Specialties</option>
+        <option value="General">General Physician</option>
+        <option value="Dermatology">Dermatology</option>
+        <option value="Orthopedic">Orthopedic</option>
+        <option value="Pediatrics">Pediatrics</option>
+        <option value="ENT">ENT</option>
+        <option value="Ophthalmology">Ophthalmology</option>
+        <option value="Dentist">Dentist</option>
+        <option value="Cardiology">Cardiology</option>
+    </select>
+
+    <button class="btn" id="addReportBtn">Add Prescription</button>
+    <button class="btn qr-btn" id="profileQrBtn">Full Access QR</button>
+    <button class="btn share-selected-btn" id="shareSelectedBtn">Share Selected</button>
+</div>
+
+<!-- Table -->
+<table id="reportTable">
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="selectAll"></th>
+            <th>Prescription / Medicine</th>
+            <th>Type</th>
+            <th>Specialty</th>
+            <th>Date</th>
+            <th>Doctor</th>
+            <th>File</th>
+            <th>View</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody id="tableBody">
+        <!-- JS will add items -->
+    </tbody>
+</table>
+
+<!-- View Modal -->
+<div id="modal" class="modal">
+    <div class="modalBox">
+        <button id="closeModal">X</button>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<!-- Add Prescription Modal -->
+<div id="addReportModal" class="modal">
+    <div class="modalBox">
+
+        <button id="closeAddReport" class="closeBtn">X</button>
+
+        <h2>Add New Prescription</h2>
+
+        <label>Prescription Name / Medicine</label>
+        <input type="text" id="r_name" placeholder="e.g. Amoxicillin 500mg">
+
+        <label>File Type</label>
+        <select id="r_type">
+            <option value="Image">Image (JPG/PNG)</option>
+            <option value="PDF">PDF Document</option>
+        </select>
+
+        <label>Upload File <span id="fileInfo" style="color:#d32f2f;font-size:12px;"></span></label>
+        <input type="file" id="fileUpload" accept="image/*,.pdf">
+
+        <label>Specialty / Department</label>
+        <input type="text" id="r_category" placeholder="e.g. General, ENT">
+
+        <label>Date</label>
+        <input type="date" id="r_date">
+
+        <label>Doctor Name</label>
+        <input type="text" id="r_doctor" placeholder="Dr. Verma">
+
+        <button id="saveReportBtn" class="btn">Save Prescription</button>
+
+    </div>
+</div>
+
+<!-- JS -->
+<script src="/js/prescriptions.js"></script>

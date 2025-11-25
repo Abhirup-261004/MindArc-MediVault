@@ -10,6 +10,8 @@ const ejslayouts = require("express-ejs-layouts");
 const userRoutes = require("./routes/user");
 const chatRoutes = require("./routes/chat");
 const communityRoutes = require("./routes/community");
+const prescriptionsRoutes = require("./routes/prescriptions");
+const reportsRoutes = require("./routes/reports");
 const prescriptionRouter = require("./routes/prescription");
 const mapRoutes = require("./routes/map");
 
@@ -83,6 +85,8 @@ app.use((req, res, next) => {
 app.use("/", userRoutes);
 app.use("/", chatRoutes);
 app.use("/community", communityRoutes);
+app.use("/prescriptions", prescriptionsRoutes);
+app.use("/reports", reportsRoutes);
 app.use("/map", mapRoutes);
 app.use("/api/prescription", prescriptionRouter);
 

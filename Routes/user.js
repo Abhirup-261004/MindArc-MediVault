@@ -160,6 +160,13 @@ router.post("/profile", isLoggedIn, async (req, res) => {
   }
 });
 
+router.get("/records", isLoggedIn, async (req, res) => {
+
+  res.render("records/index", {
+    title: "My Records",
+    currentUser: req.session.user
+  });
+});
 
 // ℹ Static pages
 router.get("/About", (req, res) => {
