@@ -13,6 +13,8 @@ const chatRoutes=require("./routes/chat")
 const communityRoutes= require("./routes/community")
 const prescriptionRouter = require('./routes/prescription');
 
+const mapRoutes = require("./routes/map");
+
 const MongoStore=require("connect-mongo");
 const ejslayouts = require("express-ejs-layouts"); // FIXED
 
@@ -84,6 +86,7 @@ app.use((req, res, next) => {
 app.use("/", userRoutes);
 app.use("/",chatRoutes);
 app.use("/community",communityRoutes);
+app.use("/map", mapRoutes);
 app.use("/api/prescription",prescriptionRouter);
 
 
