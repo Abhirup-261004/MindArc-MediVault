@@ -26,29 +26,40 @@ router.get("/register", (req, res) => {
 });
 
 // 🧾 Register user
-router.post("/register", async (req, res) => {
+router.post("/register", (req, res) => {
   const { username, email, password } = req.body;
 
-  try {
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      req.flash("error", "Email already registered!");
-      return res.redirect("/register");
-    }
+  // 1. Check if email already exists
+  User.findOne({ email })
+    .then((existingUser) => {
+      if (existingUser) {
+        req.flash("error", "Email already registered!");
+        return res.redirect("/register");
+      }
 
-    const user = new User({ username, email });
+      // 2. Create user document (NO password here)
+      const user = new User({ email });
 
-    await User.register(user, password); // ✔ saves automatically
+      // 3. Use passport-local-mongoose register with CALLBACK
+      User.register(user, password, (err, registeredUser) => {
+        if (err) {
+          console.log("REGISTRATION ERROR:", err);
+          // req.flash("error", "Registration failed. Try again.");
+          req.flash("error", err.message);
+          return res.redirect("/register");
+        }
 
-    req.flash("success", "Registration successful! Please log in.");
-    res.redirect("/login");
-
-  } catch (err) {
-    console.log("REGISTRATION ERROR:", err);
-    req.flash("error", "Registration failed. Try again.");
-    res.redirect("/register");
-  }
+        req.flash("success", "Registration successful. Please log in!");
+        res.redirect("/login");
+      });
+    })
+    .catch((err) => {
+      console.log("REGISTER FIND ERROR:", err);
+      req.flash("error", "Something went wrong. Please try again.");
+      res.redirect("/register");
+    });
 });
+
 
 // 🔐 Login form
 router.get("/login", (req, res) => {
@@ -90,7 +101,7 @@ router.get("/profile", isLoggedIn, async (req, res) => {
 
     const totals = {
       emitted: activities.reduce((sum, a) => sum + (a.co2 || 0), 0),
-      saved: 25.4 // (temporary static value)
+      saved: 25.4 
     };
 
     res.render("users/profile", {
@@ -135,5 +146,20 @@ router.get('/About', (req, res) => {
   });
 });
 
+router.get('/faq', (req, res) => {
+  res.render('faq', {
+    title: 'Frequently Asked Questions | Equil',
+    pageCSS: ['faq'],
+    currentUser: req.user
+  });
+});
+
+router.get('/help', (req, res) => {
+  res.render('help', {
+    title: 'Help and Support',
+    pageCSS: ['help'],
+    currentUser: req.user
+  });
+});
 
 module.exports = router;
