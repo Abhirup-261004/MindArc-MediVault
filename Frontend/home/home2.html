@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediVault | Medical & Health Services</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the background image and overlay */
+        .hero-background {
+            /* Using a high-quality medical stock image placeholder */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 50, 100, 0.7)), 
+                              url('https://placehold.co/1920x1080/003366/ffffff?text=Professional+Medical+Background');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Optional: Makes the background parallax-like */
+            height: 100vh;
+        }
+        /* Custom font import for better aesthetic (Poppins used in previous code) */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700;900&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Style for the subtle shadow on feature cards */
+        .feature-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#007bff',
+                        'dark-vault': '#003366',
+                        'accent-light': '#f0f4f8',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-accent-light">
+
+    <!-- HERO SECTION - Full screen background with content -->
+    <header class="hero-background text-white flex flex-col">
+        
+        <!-- Navigation Bar -->
+        <nav class="p-4 md:p-6 flex justify-between items-center z-10 bg-black bg-opacity-10">
+            <!-- Logo/Brand -->
+            <a href="#" class="text-2xl font-extrabold tracking-widest uppercase hover:text-primary-blue transition duration-300">
+                MediVault
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <ul class="hidden md:flex space-x-8 text-sm font-semibold">
+                <li><a href="#" class="hover:text-primary-blue transition duration-300">HOME</a></li>
+                <li><a href="#" class="hover:text-primary-blue transition duration-300">ABOUT</a></li>
+                <li><a href="#" class="hover:text-primary-blue transition duration-300">SERVICES</a></li>
+                <li><a href="#" class="hover:text-primary-blue transition duration-300">CONTACT</a></li>
+                <!-- CTA Button -->
+                <li>
+                    <a href="#" class="bg-primary-blue px-4 py-2 rounded-lg hover:bg-dark-vault transition duration-300 shadow-lg">SIGN IN</a>
+                </li>
+            </ul>
+            
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 right-0 bg-dark-vault bg-opacity-95 p-4 shadow-xl z-20">
+            <a href="#" class="block py-2 text-center text-lg hover:text-primary-blue transition duration-300 border-b border-gray-700">HOME</a>
+            <a href="#" class="block py-2 text-center text-lg hover:text-primary-blue transition duration-300 border-b border-gray-700">ABOUT</a>
+            <a href="#" class="block py-2 text-center text-lg hover:text-primary-blue transition duration-300 border-b border-gray-700">SERVICES</a>
+            <a href="#" class="block py-2 text-center text-lg hover:text-primary-blue transition duration-300 border-b border-gray-700">CONTACT</a>
+            <a href="#" class="block py-2 text-center text-lg mt-2 bg-primary-blue rounded-lg hover:bg-blue-600 transition duration-300">SIGN IN</a>
+        </div>
+
+
+        <!-- Hero Content (Centered) -->
+        <div class="flex-grow flex items-center justify-center p-4">
+            <div class="text-center max-w-4xl px-4 py-10">
+                <!-- Main Heading -->
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+                    Medical
+                </h1>
+                
+                <!-- Subtext/Description -->
+                <p class="text-base md:text-xl font-light leading-relaxed mb-10 opacity-90 max-w-3xl mx-auto">
+                    Secure and accessible healthcare information, right at your fingertips. We are dedicated to simplifying 
+                    your medical journey with cutting-edge technology and compassionate care.
+                </p>
+                
+                <!-- CTA Button (More Info) -->
+                <a href="#" class="inline-block px-10 py-3 text-lg font-semibold border-2 border-white 
+                                  rounded-xl hover:bg-white hover:text-dark-vault transition duration-500 
+                                  shadow-xl transform hover:scale-105">
+                    Explore Solutions
+                </a>
+            </div>
+        </div>
+
+    </header>
+
+    <main>
+        
+        <!-- 1. FEATURE SECTION (Desktop-focused layout) -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 max-w-7xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-dark-vault mb-12">Why Choose MediVault?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Feature Card 1: Security -->
+                    <div class="feature-card bg-gray-50 p-6 rounded-2xl shadow-md border-t-4 border-primary-blue text-center">
+                        <!-- Icon: Lock -->
+                        <div class="text-primary-blue mb-4 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark-vault mb-3">Data Security</h3>
+                        <p class="text-gray-600 text-sm">
+                            We use military-grade encryption to protect all your sensitive medical records. HIPAA compliant and fully secured.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 2: Accessibility -->
+                    <div class="feature-card bg-gray-50 p-6 rounded-2xl shadow-md border-t-4 border-primary-blue text-center">
+                        <!-- Icon: Tablet/Mobile -->
+                        <div class="text-primary-blue mb-4 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark-vault mb-3">24/7 Access</h3>
+                        <p class="text-gray-600 text-sm">
+                            Access your health profile anytime, anywhere, on any device—be it desktop, tablet, or mobile phone.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 3: Integration -->
+                    <div class="feature-card bg-gray-50 p-6 rounded-2xl shadow-md border-t-4 border-primary-blue text-center">
+                        <!-- Icon: Heartbeat -->
+                        <div class="text-primary-blue mb-4 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark-vault mb-3">Seamless Integration</h3>
+                        <p class="text-gray-600 text-sm">
+                            Easily connect with hospitals, labs, and pharmacies. Streamlining communication for better patient outcomes.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. STATISTICS SECTION (Trust Building) -->
+        <section class="py-12 md:py-16 bg-primary-blue text-white">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    
+                    <div>
+                        <div class="text-4xl md:text-5xl font-extrabold mb-1">100k+</div>
+                        <div class="text-sm uppercase tracking-wider opacity-90">Patients Served</div>
+                    </div>
+
+                    <div>
+                        <div class="text-4xl md:text-5xl font-extrabold mb-1">99.9%</div>
+                        <div class="text-sm uppercase tracking-wider opacity-90">Uptime Reliability</div>
+                    </div>
+
+                    <div>
+                        <div class="text-4xl md:text-5xl font-extrabold mb-1">12+</div>
+                        <div class="text-sm uppercase tracking-wider opacity-90">Years Experience</div>
+                    </div>
+
+                    <div>
+                        <div class="text-4xl md:text-5xl font-extrabold mb-1">50+</div>
+                        <div class="text-sm uppercase tracking-wider opacity-90">Partner Clinics</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 3. FOOTER SECTION -->
+    <footer class="bg-dark-vault text-white py-10">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-gray-700 pb-8 mb-8">
+                
+                <!-- Brand Info -->
+                <div class="col-span-2 md:col-span-1">
+                    <h4 class="text-xl font-bold mb-4">MediVault</h4>
+                    <p class="text-sm text-gray-400">Simplifying healthcare, securing your data.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-primary-blue">Quick Links</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition duration-200">Home</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-200">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-200">Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-primary-blue">Legal</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition duration-200">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-200">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-200">HIPAA Compliance</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-primary-blue">Contact</h5>
+                    <p class="text-sm text-gray-400">123 Health Ave, Wellness City</p>
+                    <p class="text-sm text-gray-400">support@MediVault.com</p>
+                    <p class="text-sm text-gray-400">1-800-MED-VAULT</p>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center text-sm text-gray-500">
+                &copy; 2025 MediVault. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Toggle the mobile menu visibility
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close menu if a link is clicked (optional, but good UX)
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

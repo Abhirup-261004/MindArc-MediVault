@@ -17,6 +17,7 @@ router.get("/", (req, res) => {
 // 🧾 Register form
 router.get("/register", (req, res) => {
   res.render("users/register", {
+    hideLayout: true,
     title : "Sign Up ", 
     pageCSS : ["auth"], 
      currentUser: req.user,
@@ -64,6 +65,7 @@ router.post("/register", (req, res) => {
 // 🔐 Login form
 router.get("/login", (req, res) => {
   res.render("users/login", {
+    hideLayout: true,
     title: " Sign In ",
     pageCSS: ["auth"], // ✅ loads auth.css
    

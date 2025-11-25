@@ -1,99 +1,98 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-.container {
-    width: 100%;
-    height:100%;
-    position: relative;
-}
-
-/* .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    position: relative;
-} */
-
-
-
-.content-card {
-    /* CHANGED: Use variable */
-    background: var(--color-card-bg);
-    /* ADDED: Border for dark mode */
-    border: 1px solid var(--color-card-border);
-    border-radius: 20px;
-    padding: 40px 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+/* ABOUT HERO SECTION */
+.about-hero {
+    margin-top: 100px;
     text-align: center;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    padding: 50px 20px;
 }
 
-.mission-title {
-    /* CHANGED: Use variable */
-    color: var(--color-primary);
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 16px;
+.about-hero h1 {
+    font-size: 60px;
+    color: #003366;
+    font-weight: 800;
 }
 
-.mission-text {
-    /* CHANGED: Use variable */
-    color: var(--color-text-body);
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 32px;
+.about-hero p {
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 18px;
+    color: #444;
 }
 
-.content-title {
-    /* CHANGED: Use variable */
-    color: var(--color-text-header);
+/* INFO CARDS */
+.info-section {
+    padding: 50px 20px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.info-card {
+    width: 320px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-top: 4px solid #007bff;
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card h3 {
     font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+    color: #003366;
 }
 
-.content-text {
-    /* CHANGED: Use variable */
-    color: var(--color-text-body);
-    font-size: 14px;
-    line-height: 1.6;
+.info-card p {
+    font-size: 15px;
+    color: #444;
+}
+
+/* TEAM SECTION */
+.team-section {
+    background: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.team-section h2 {
+    font-size: 35px;
+    color: #003366;
     margin-bottom: 40px;
 }
 
-.developers-section {
-    margin-bottom: 24px;
-    display:flex;
-    flex-direction:column;
+.team-grid {
+    display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-.developed-by {
-    /* CHANGED: Use variable */
-    color: var(--color-text-header);
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 16px;
+.team-mem {
+    text-align: center;
 }
 
-.developer-name {
-    /* CHANGED: Use variable */
+.team-mem img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #007bff;
+}
+
+.team-mem h4 {
+    margin-top: 10px;
+    color: #003366;
+}
+
+.team-mem h4 a{
     text-decoration: none;
-    color: var(--color-text-body);
-    font-size: 15px;
-    margin: 8px 0;
-}
-.developer-name:hover{
-    color: red;
-}
-
-.version {
-    /* CHANGED: Use variable */
-    color: var(--color-text-muted);
-    font-size: 13px;
-    margin-top: 20px;
+    color:#003366;
 }

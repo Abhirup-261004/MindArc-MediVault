@@ -1,8 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+body {
+    background: #f4f7fb;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    padding: 20px;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+}
+
+.signin-btn {
+    padding: 8px 15px;
+    background: #007bff;
+    border-radius: 6px;
+    color: white !important;
+}
+
+.hamburger {
+    display: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+}
+
+/* MOBILE NAV */
+@media(max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        flex-direction: column;
+        background: #003366;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
 /* HERO SECTION */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,50,100,0.7)),
-                url("/media/doc.jpg");
+                url("https://placehold.co/1920x1080/003366/ffffff?text=Medical+Background");
     background-size: cover;
     background-position: center;
     color: white;
@@ -92,6 +165,26 @@
 
 .stats h1 {
     font-size: 45px;
+}
+
+/* FOOTER */
+footer {
+    background: #003366;
+    color: white;
+    padding: 50px 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 30px;
+}
+
+footer a {
+    color: #ccc;
+    text-decoration: none;
 }
 
 .copy {
